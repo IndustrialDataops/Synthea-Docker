@@ -1,0 +1,15 @@
+FROM openjdk:17-jdk-alpine3.14
+
+ENV population 10
+
+RUN mkdir /synthea
+
+WORKDIR  /synthea
+
+COPY ./synthea-with-dependencies.jar ./
+
+COPY ./synthea.properties ./
+
+ENTRYPOINT  [ "java", "-jar" , "./synthea-with-dependencies.jar", "-c", "./synthea.properties" , "-m", "metabolic*" ] 
+
+CMD ["-p" , "25"]
