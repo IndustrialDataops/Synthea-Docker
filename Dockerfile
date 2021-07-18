@@ -1,7 +1,5 @@
 FROM openjdk:17-jdk-alpine3.14
 
-ENV population 10
-
 RUN mkdir /synthea
 
 WORKDIR  /synthea
